@@ -1,0 +1,9 @@
+env:
+  mocha: true
+plugins:
+  - chai-friendly
+rules:
+  no-loop-func: "off"
+  no-sync: "off"
+  no-unused-expressions: "off"
+  chai-friendly/no-unused-expressions: 2

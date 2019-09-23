@@ -1,0 +1,7 @@
+<% if (locals.notifications) { %>
+  <% for (let i = 0; i < notifications.length; i++) {%>
+    <pre class="notification">
+      <%- notifications[i] %>
+    </pre>
+  <% } %>
+<% } %>
