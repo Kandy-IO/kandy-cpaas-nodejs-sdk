@@ -1,5 +1,13 @@
 # Node SDK
 
+## Installation
+
+Install the package with:
+
+```bash
+npm install @kandy-io/node-sdk
+```
+
 ## Usage
 
 Instantiate the instance with `clientId` & `clientSecret`.
