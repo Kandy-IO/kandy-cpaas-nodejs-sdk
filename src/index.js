@@ -11,6 +11,7 @@ const Client = require('./client')
  * @param {string} params.baseUrl - URL of the server to be used.
  *
  * @example
+ *
  * const client = createClient({
  *   clientId: '<private project key>',
  *   clientSecret: '<private project secret>',
