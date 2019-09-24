@@ -33,7 +33,7 @@ Every module method returns a promise.
 async function sendCode() {
   try {
     const response = await client.twofactor.sendCode({
-        address: '+12292990344',
+        destinationAddress: '+12292990344',
         method: 'sms',
         message: 'Your code is {code}'
       });
@@ -50,7 +50,7 @@ async function sendCode() {
 
 ```javascript
 client.twofactor.sendCode({
-  address: '+12292990344',
+  destinationAddress: '+12292990344',
   method: 'sms',
   message: 'Your code is {code}'
 }).then(response => {
