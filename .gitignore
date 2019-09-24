@@ -1,0 +1,25 @@
+# Git
+**.orig
+
+# OS X
+.DS_Store
+.DS_Store?
+.AppleDouble
+
+# Folder config file
+Desktop.ini
+
+# Windows shortcuts
+*.lnk
+
+# Node
+.nvmrc
+lib-cov
+node_modules
+
+# jsdoc dir
+docs
+
+# Logs
+logs
+*.log
