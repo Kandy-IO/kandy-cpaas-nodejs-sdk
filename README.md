@@ -30,7 +30,7 @@ The modules can be accessed via the instance(client). All the methods invocation
 // {clientInstance}.{moduleName}.{methodName}(params)
 
 // Example
-client.sms.send(params);
+client.conversation.createMessage(params);
 ```
 
 Every module method returns a promise.
