@@ -1,5 +1,5 @@
 {
-  "name": "@kandy-io/node-sdk",
+  "name": "@kandy-io/nodejs-sdk",
   "version": "1.0.0",
   "description": "Kandy SDK",
   "main": "src/index.js",

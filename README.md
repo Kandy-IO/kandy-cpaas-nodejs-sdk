@@ -1,11 +1,11 @@
-# Node SDK
+# @kandy-io/nodejs-sdk
 
 ## Installation
 
 Install the package with:
 
 ```bash
-npm install @kandy-io/node-sdk
+npm install @kandy-io/nodejs-sdk
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @kandy-io/node-sdk
 Instantiate the instance with `clientId` & `clientSecret`.
 
 ```javascript
-const { createClient } = require('@kandy-io/node-sdk');
+const { createClient } = require('@kandy-io/nodejs-sdk');
 
 // Initialize
 const client = createClient({
