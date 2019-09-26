@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "docs": "documentation build src/** -f json -o docs/kandy-docs.json",
+    "docs": "npm run docs:html & npm run docs:json & npm run docs:md",
+    "docs:html": "documentation build src/** -f html -o docs/",
+    "docs:json": "documentation build src/** -f json -o docs/kandy-docs.json",
+    "docs:md": "documentation build src/** -f md -o docs/kandy-docs.md",
     "format": "prettier-eslint 'packages/!(fcs)/**/*.js' --write",
     "lint": "eslint test",
     "test": "mocha --recursive --full-trace",

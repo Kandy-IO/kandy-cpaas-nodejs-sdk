@@ -17,9 +17,6 @@ Desktop.ini
 lib-cov
 node_modules
 
-# jsdoc dir
-docs
-
 # Logs
 logs
 *.log
