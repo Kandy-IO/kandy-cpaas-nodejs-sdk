@@ -8,62 +8,10 @@ Install the package with:
 npm install @kandy-io/nodejs-sdk
 ```
 
-## Usage
+## Reference
 
-Instantiate the instance with `clientId` & `clientSecret`.
+The information about tutorials and documents can be found in the links below
 
-```javascript
-const { createClient } = require('@kandy-io/nodejs-sdk');
+* `Documents`: [docs](https://kandy-io.github.io/kandy-cpaas-nodejs-sdk/docs)
 
-// Initialize
-const client = createClient({
-  clientId: '<private project key>',
-  clientSecret: '<private project secret>',
-  baseUrl: '<url of the server>'
-})
-```
-
-The modules can be accessed via the instance(client). All the methods invocations follows the namespaced signature
-
-```javascript
-// API signature
-// {clientInstance}.{moduleName}.{methodName}(params)
-
-// Example
-client.conversation.createMessage(params);
-```
-
-Every module method returns a promise.
-
-#### Use with `async/await`
-
-```javascript
-async function sendCode() {
-  try {
-    const response = await client.twofactor.sendCode({
-        destinationAddress: '+12292990344',
-        method: 'sms',
-        message: 'Your code is {code}'
-      });
-
-    // handle success
-  }
-  catch (error) {
-    // handle error
-  }
-}
-```
-
-#### Use as `promise`
-
-```javascript
-client.twofactor.sendCode({
-  destinationAddress: '+12292990344',
-  method: 'sms',
-  message: 'Your code is {code}'
-}).then(response => {
-  // handle success
-}).catch(error => {
-  // handle error
-})
-```
+* `Tutorials`:  [Get Started](https://Kandy-IO.github.io/kandy-cpaas-nodejs-sdk/tutorials/?KANDY=Kandy&KANDYFQDN=https://oauth-cpaas.att.com)
