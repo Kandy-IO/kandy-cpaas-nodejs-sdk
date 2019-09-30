@@ -8,14 +8,14 @@ To begin, you will need to install the node.js library in your application. The 
 
 
 ```bash
-npm install @kandy-io/node-sdk --save
+npm install @kandy-io/cpaas-nodejs-sdk --save
 ```
 
 In your application, you simply need to import the library to be able to make use of it.
 
 ```javascript
 // Instantiate the SDK.
-const { createClient } = require('@kandy-io/node-sdk')
+const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
 
 // Initialize
 const client = createClient(config)
@@ -28,7 +28,7 @@ After you've created your instance of the SDK, you can begin playing around with
 Instantiating the library can be done by providing a configuration object to the library factory as shown below.
 
 ```javascript
-const { createClient } = require('@kandy-io/node-sdk')
+const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
 
 // Initialize
 const client = createClient({

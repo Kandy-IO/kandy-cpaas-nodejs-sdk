@@ -1,11 +1,11 @@
-# @kandy-io/nodejs-sdk
+# @kandy-io/cpaas-nodejs-sdk
 
 ## Installation
 
 Install the package with:
 
 ```bash
-npm install @kandy-io/nodejs-sdk
+npm install @kandy-io/cpaas-nodejs-sdk
 ```
 
 ## Reference
