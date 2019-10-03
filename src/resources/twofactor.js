@@ -1,4 +1,4 @@
-const { composeResponse } = require('./../utils')
+const { composeResponse, idFrom } = require('./../utils')
 
 /**
  * CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.
@@ -50,7 +50,7 @@ module.exports = function twofactor (api) {
         return api.sendRequest(`${baseUrl}/${api.userId}/codes`, options, 'post')
           .then(res => {
             return composeResponse(res, {
-              codeId: codeIdFrom(res.code.resourceURL)
+              codeId: idFrom(res.code.resourceURL)
             })
           })
       })
@@ -132,7 +132,7 @@ module.exports = function twofactor (api) {
         return api.sendRequest(`${baseUrl}/${api.userId}/codes/${codeId}`, options, 'put')
           .then(res => {
             return composeResponse(res, {
-              codeId: codeIdFrom(res.code.resourceURL)
+              codeId: idFrom(res.code.resourceURL)
             })
           })
       })
@@ -159,10 +159,4 @@ module.exports = function twofactor (api) {
       })
     }
   }
-}
-
-function codeIdFrom(url) {
-  chunks = url.split('/')
-
-  return chunks[chunks.length - 1]
 }

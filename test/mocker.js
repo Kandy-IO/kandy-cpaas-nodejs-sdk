@@ -4,7 +4,7 @@ const HOST = 'https://oauth-cpaas.kandy.com'
 const STATUS = 200
 
 module.exports = (params) => {
-  const { url, method, customBody, merge = true } = params
+  const { url, method, customBody } = params
   let requestQueryParams = null
 
   nock(HOST)
@@ -27,6 +27,6 @@ module.exports = (params) => {
         }
       }
 
-      return (customBody && merge) ? { ...responseBody, ...customBody } : responseBody
+      return { ...responseBody, ...customBody }
     })
 }

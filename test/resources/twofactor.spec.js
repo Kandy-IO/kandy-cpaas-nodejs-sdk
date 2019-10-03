@@ -19,8 +19,7 @@ describe('Two Factor Authentication Resource', () => {
           code: {
             resourceURL: '/cpaas/auth/v1/91fc8907-d336-4707-ad3c-0711c0b87471/codes/51b545e7-729f-4690-9571-e5c85852b179'
           }
-        },
-        merge: true
+        }
       })
     })
 
@@ -165,8 +164,7 @@ describe('Two Factor Authentication Resource', () => {
           code: {
             resourceURL: '/cpaas/auth/v1/91fc8907-d336-4707-ad3c-0711c0b87471/codes/51b545e7-729f-4690-9571-e5c85852b179'
           }
-        },
-        merge: true
+        }
       })
     })
 

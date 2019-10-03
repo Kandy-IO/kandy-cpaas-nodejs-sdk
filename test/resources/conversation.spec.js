@@ -18,8 +18,7 @@ describe('Conversation Resource', () => {
       mocker({
         url: smsURL,
         method: 'POST',
-        customBody: conversationFixture.sms.outboundMessage,
-        merge: true
+        customBody: conversationFixture.sms.outboundMessage
       })
     })
 
@@ -263,8 +262,7 @@ describe('Conversation Resource', () => {
       mocker({
         url,
         method: 'GET',
-        customBody: conversationFixture.sms.subscriptions,
-        merge: true
+        customBody: conversationFixture.sms.subscriptions
       })
 
       conversation.getSubscriptions().then((response) => {
@@ -286,8 +284,7 @@ describe('Conversation Resource', () => {
         method: 'GET',
         customBody: {
           subscription: conversationFixture.sms.subscriptions.subscriptionList.subscription[0]
-        },
-        merge: true
+        }
       })
 
       conversation.getSubscription(params).then((response) => {
@@ -305,15 +302,13 @@ describe('Conversation Resource', () => {
         method: 'POST',
         customBody: {
           subscription: conversationFixture.sms.subscriptions.subscriptionList.subscription[0]
-        },
-        merge: true
+        }
       })
 
       mocker({
         url: `/cpaas/notificationchannel/v1/${api.userId}/channels`,
         method: 'POST',
-        customBody: notificationChannelFixture.channel,
-        merge: true
+        customBody: notificationChannelFixture.channel
       })
     })
 
