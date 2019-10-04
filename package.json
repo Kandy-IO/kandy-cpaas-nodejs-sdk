@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Kandy SDK",
   "main": "src/index.js",
-  "private": true,
   "scripts": {
     "docs": "npm run docs:html & npm run docs:json & npm run docs:md",
     "docs:html": "documentation build src/** -f html -o docs/",
