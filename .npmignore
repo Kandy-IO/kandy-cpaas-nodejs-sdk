@@ -1,0 +1,14 @@
+# This is for whitelisting rather than blacklisting of files. First every file
+# is ignored/blacklisted and then the the files that are needed are whitelisted
+# individually to be included in the final NPM package
+# Reason - To create a lean package
+
+# Blacklisting
+*
+
+# Whitelisting
+!/src/**/*
+!/package.json
+!/README.md
+!/LICENSE.md
+!/CHANGELOG.md
