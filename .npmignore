@@ -3,10 +3,10 @@
 # individually to be included in the final NPM package
 # Reason - To create a lean package
 
-# Blacklisting
+# Blacklisted files
 *
 
-# Whitelisting
+# Whitelisted files
 !/src/**/*
 !/package.json
 !/README.md

@@ -23,3 +23,13 @@ logs
 
 # npm
 .npmrc
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
