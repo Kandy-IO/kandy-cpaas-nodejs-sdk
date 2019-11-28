@@ -32,7 +32,7 @@ Before moving to how the response body looks, let's walk through the highlights 
   - sip:6131234567@domain
 + `message` field contains the text message in `UTF-8` encoded format.
 
-> The number provided in {senderAddress} field should be an assigned/purchased number for the user, otherwise $KANDY$ replies back with a Forbidden error.
+> The number provided in `senderAddress` field should be purchased by the account and assigned to the project, otherwise $KANDY$ replies back with a Forbidden error.
 
 Now, let's check the successful response:
 
@@ -46,9 +46,9 @@ Now, let's check the successful response:
   senderAddress: '+16139998877'
 }
 ```
-In case of requesting `default` senderAddress usage, senderAddress field in response can be used to understand the actual number used since it contains the number being used as from address.
+In case of passing `default` as sender_address in the request, the actual number from which sms is sent can be identified with `senderAddress` field in the response
 
-> + The deliveryStatus can have the following values `DeliveredToNetwork`, `DeliveryImpossible`
+> + The deliveryStatus can have the following values: `DeliveredToNetwork`, `DeliveryImpossible`
 
 
 ## Receive SMS
@@ -75,7 +75,7 @@ async function createInboundSubscription() {
   }
 }
 ```
-+ `destinationAddress` is an optional parameter to indicate which SMS DID number has been desired to receive SMS messages. Corresponding number should be one of the assigned/purchased numbers of the user or project/application, otherwise $KANDY$ replies back with Forbidden error. Also not providing this parameter triggers $KANDY$ to use the default assigned DID number against this user, in which case the response message for the subscription contains the `destinationAddress` field. It is highly recommended to provide `destinationAddress` parameter.
++ `destinationAddress` is an optional parameter to indicate which SMS DID number has been desired to receive SMS messages. Corresponding number should be one of the assigned/purchased numbers of the project, otherwise $KANDY$ replies back with Forbidden error. Also not providing this parameter triggers $KANDY$ to use the default assigned DID number against this user, in which case the response message for the subscription contains the `destinationAddress` field. It is highly recommended to provide `destinationAddress` parameter.
 + `webhookURL` is a webhook that is present in your application which is accessible from the public web. The sms notifications would be delivered to the webhook and the received notification can be consumed by using the `notification.parse` helper method. The usage of `notification.parse` is explained in Step 2.
 
 A successful subscription would return:
@@ -87,7 +87,7 @@ A successful subscription would return:
 ```
 
 > + For every number required to receive incoming SMS, there should be an individual subscription.
-> + When a number has been unassigned from a user or project/application, all corresponding inbound SMS subscriptions are cancelled and `smsSubscriptionCancellationNotification` notification is sent.
+> + When a number has been unassigned from a project, all corresponding inbound SMS subscriptions are cancelled and `smsSubscriptionCancellationNotification` notification is sent.
 
 Now, you are ready to receive inbound SMS messages via webhook, for example - 'https://myapp.com/inbound-sms/webhook'.
 
@@ -143,4 +143,4 @@ With the help of this notification, clients can sync their view on sent SMS mess
 
 
 ## References
-For all SMS related method details, refer to [SMS](/developer/references/node/1.0.0#sms-send).
+For all SMS related method details, refer to [SMS](/developer/references/nodejs/1.0.0#sms-send).

@@ -1,5 +1,5 @@
 # Two-Factor Authentication
-$KANDY$ provides [Authentication API](/developer/references/node/1.0.0#twofactor-send-code) using which a two-factor authentication (2FA) flow can be implemented.
+$KANDY$ provides [Authentication API](/developer/references/nodejs/1.0.0#twofactor-send-code) using which a two-factor authentication (2FA) flow can be implemented.
 
 Sections below describe two sample use cases, two-factor authentication via SMS and two-factor authentication via e-mail.
 
@@ -48,7 +48,7 @@ The response contains `codeId` which is a unique ID needed for `verifyCode`. The
 
 Walking through the method parameters:
 
-+ `destinationAddress` is required with a routable destination number in E.164 format, either with tel schema or not. For v1, only one address is supported.
++ `destinationAddress` is required with a routable destination number in E.164 format, either with tel schema or not. For SDK v1, only one address is supported.
 + `method` is mandatory and must have `sms` for verification via SMS flow.
 + `expiry` indicates the desired period of time in seconds that the code will be valid on $KANDY$. It is optional having default value as 120 seconds, while application can ask for values between 30 and 3600 seconds.
 + `message` is required with a `{code}` string within the text so that $KANDY$ can replace that with the real code generated, and send it as the SMS content.
@@ -122,7 +122,7 @@ The response contains `codeId` which is a unique ID needed for `verifyCode`. The
   }
 ```
 
-As can be seen within the example, `method` parameter has `email` value, while `destinationAddress` field includes a destination e-mail address. For v1, only plain text is supported.
+As can be seen within the example, `method` parameter has `email` value, while `destinationAddress` field includes a destination e-mail address. For SDK v1, only plain text is supported.
 
 Verification procedure for two-factor authentication via e-mail is same with two-factor authentication via SMS as described in previous section.
 
@@ -133,4 +133,4 @@ The `code` can be:
 + Deleted explicitly if desired (deletion operation does not block the previously started send operation)
 
 ## References
-For all two factor authentication related method details, refer to [Two Factor Authentication](/developer/references/node/1.0.0#twofactor-send-code).
+For all two factor authentication related method details, refer to [Two Factor Authentication](/developer/references/nodejs/1.0.0#twofactor-send-code).

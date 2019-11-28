@@ -3,13 +3,13 @@
 
 - name: Get Started
   description: This guide will get you started with $KANDY$ REST API Configuration, Authentication & Authorization, and Notification Channels.
-  link: /quickstarts/node/GetStarted
+  link: /quickstarts/nodejs/GetStarted
 
 - name: SMS Messaging
   description: In this section we will send an SMS to a mobile phone, then investigate how to receive delivery receipts and incoming SMS messages.
-  link: /quickstarts/node/SMSMessaging
+  link: /quickstarts/nodejs/SMSMessaging
 
 - name: 2FA
   description: $KANDY$ provides 2FA (two-factor authentication) API for developers to integrate their user authentication with other means, such as SMS.
-  link: /quickstarts/node/2FA
+  link: /quickstarts/nodejs/2FA
 
