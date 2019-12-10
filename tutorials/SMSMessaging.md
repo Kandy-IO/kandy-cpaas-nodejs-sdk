@@ -26,7 +26,6 @@ Before moving to how the response body looks, let's walk through the highlights 
 + `destinationAddress` can either be an array of phone numbers or a single phone number string within the params containing the destinations that corresponding SMS message will be sent. For v1, only one destination is supported on $KANDY$.
 + Address value needs to contain a phone number, ideally in E.164 format. Some valid formats are:
   - +16131234567
-  - 6131234567
   - tel:+16131234567
   - sip:+16131234567@domain
   - sip:6131234567@domain

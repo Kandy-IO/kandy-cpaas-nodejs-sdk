@@ -79,7 +79,8 @@ describe('Two Factor Authentication Resource', () => {
         length: 10,
         type: 'alphanumeric',
         expiry: 480,
-        method: 'email'
+        method: 'email',
+        subject: 'Test subject'
       }
 
       const expectedBody = {
@@ -91,7 +92,8 @@ describe('Two Factor Authentication Resource', () => {
             type: 'alphanumeric'
           },
           expiry: 480,
-          method: 'email'
+          method: 'email',
+          subject: 'Test subject'
         }
       }
 

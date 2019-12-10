@@ -21,6 +21,7 @@ module.exports = function twofactor (api) {
      * @param  {string[]|string} params.destinationAddress - Destination address of the authentication code being sent. For sms type authentication codes, it should contain a E164 phone number. For e-mail type authentication codes, it should contain a valid e-mail address.
      * @param  {string} params.message - Message text sent to the destination, containing the placeholder for the code within the text. CPaaS requires to have *{code}* string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the *{code}* string located within the link in order to get a unique link.
      * @param  {string} [params.method='sms'] - Type of the authentication code delivery method, sms and email are supported types. Possible values: sms, email
+     * @param  {string} [params.subject] - When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
      * @param  {number} [params.expiry=120] - Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.
      * @param  {number} [params.length=6] - Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10.
      * @param  {string} [params.type='numeric'] - Type of the code that is generated. If not provided, default value is numeric. Possible values: numeric, alphanumeric, alphabetic
@@ -28,7 +29,7 @@ module.exports = function twofactor (api) {
      * @returns {Promise<Object>}
      */
 
-    sendCode ({ destinationAddress, message, expiry = 120, length = 6, method = 'sms', type = 'numeric' }) {
+    sendCode ({ destinationAddress, message, subject, expiry = 120, length = 6, method = 'sms', type = 'numeric' }) {
       return api.makeRequest(() => {
         const address = Array.isArray(destinationAddress) ? destinationAddress : [ destinationAddress ]
 
@@ -42,6 +43,7 @@ module.exports = function twofactor (api) {
                 type
               },
               expiry: parseInt(expiry, 10),
+              subject,
               message
             }
           }
@@ -103,6 +105,7 @@ module.exports = function twofactor (api) {
      * @param  {string} params.message - Message text sent to the destination, containing the placeholder for the code within the text. CPaaS requires to have *{code}* string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the *{code}* string located within the link in order to get a unique link.
      * @param  {string} params.codeId - ID of the authentication code.
      * @param  {string} [params.method='sms'] - Type of the authentication code delivery method, sms and email are supported types. Possible values: sms, email
+     * @param  {string} [params.subject] - When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
      * @param  {number} [params.expiry=120] - Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.
      * @param  {number} [params.length=6] - Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10.
      * @param  {string} [params.type='numeric'] - Type of the code that is generated. If not provided, default value is numeric. Possible values: numeric, alphanumeric, alphabetic
@@ -110,7 +113,7 @@ module.exports = function twofactor (api) {
      * @returns {Promise<Object>}
      */
 
-    resendCode ({ destinationAddress, codeId, message, expiry = 120, length = 6, method = 'sms', type = 'numeric' }) {
+    resendCode ({ destinationAddress, codeId, message, subject, expiry = 120, length = 6, method = 'sms', type = 'numeric' }) {
       return api.makeRequest(() => {
         const address = Array.isArray(destinationAddress) ? destinationAddress : [ destinationAddress ]
 
@@ -124,7 +127,8 @@ module.exports = function twofactor (api) {
                 type
               },
               expiry: parseInt(expiry, 10),
-              message
+              message,
+              subject
             }
           }
         }
