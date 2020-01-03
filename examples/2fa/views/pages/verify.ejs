@@ -9,13 +9,23 @@
 </head>
 <body>
   <% include ../partials/alert %>
-  <form action="/verify" method="post" class="box centered-box">
-    <h2 class="text-center">Verify</h2>
-    <div class="input-group">
-      <label for="code">Verification code</label>
-      <input type="text" id="code" maxlength="6" name="code" />
-      <button type="submit">Verify</button>
-    </div>
-  </form>
+  <div class="box centered-box">
+    <form action="/verify" method="post">
+      <h2 class="text-center">Verify</h2>
+      <div class="input-group">
+        <label for="code">Verification code</label>
+        <input type="text" id="code" maxlength="6" name="code" />
+        <button type="submit">Verify</button>
+      </div>
+    </form>
+    <hr>
+    <form action="/sendtwofactor" method="post">
+      <div class="input-group:nowrap">
+        <input type="radio" name="otp" value="sms" checked/> 2FA via sms
+        <input type="radio" name="otp" value="email" /> 2FA via email
+        <button class='verify-button' type="submit">Send 2FA</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

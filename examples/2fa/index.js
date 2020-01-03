@@ -40,39 +40,36 @@ server.route('/login')
     }
 
     /**
-    * If login credentials are valid, sendCode method is used to request 2FA code
-    * to the phone number as destinationAddress.
-    *
-    * If a valid response is received, the codeId present in the response is set in the server instance.
-    * This codeId is eventually used when the 2FA code (received in the phone number) needs to be verified.
-    * Once the codeId is set, the user is redirected to the code verification page
-    * where the user is prompted to enter the code received in the phone number.
-    *
-    * If an error is raised by sendCode, it is caught in the catch block and the user is
-    * redirected to the login page with the received error message as an alert.
+    * If login credentials are valid, redirected to verify page.
     *
     */
+    setCredentialsVerified()
+    res.redirect('/verify')
+  })
 
+server.route('/sendtwofactor')
+  .post(async (req, res) => {
     try {
-      const response = await client.twofactor.sendCode({
-        destinationAddress: process.env.PHONE_NUMBER,
-        message: 'Your verification code {code}'
-      })
-
-      console.log(response)
+      if (req.body.otp == 'email') {
+        var response = await client.twofactor.sendCode({
+          destinationAddress: process.env.DESTINATION_EMAIL,
+          message: 'Your verification code {code}',
+          subject: 'Twofactor verification',
+          method: 'email',
+        })
+      } else if (req.body.otp == 'sms') {
+        var response = await client.twofactor.sendCode({
+          destinationAddress: process.env.PHONE_NUMBER,
+          message: 'Your verification code {code}'
+        })
+      }
 
       setCodeId(response.codeId)
-
-      setCredentialsVerified()
-
-      res.redirect('/verify')
+      res.render('pages/verify', { alert: { message: 'Twofactor verification code sent successfully', type: 'success'}})
     } catch (error) {
-      // Here something went wrong either the server or proper parameters were not passed.
       const { message, name, exceptionId } = error
       const errorMessage = `${name}: ${message} (${exceptionId})`
-
-      // Received error message is echoed back to the UI as error alert.
-      res.render('pages/login', { alert: { message: errorMessage, type: 'error' } })
+      res.render('pages/verify', { alert: { message: errorMessage, type: 'error' } })
     }
   })
 
@@ -87,7 +84,7 @@ server.route('/verify')
     }
 
     // If the login credentials are verified, user is redirected to code verification page.
-    res.render('pages/verify', { alert: { message: 'Verification code has been sent to your phone number', type: 'success' } })
+    res.render('pages/verify')
   })
   .post(async (req, res) => {
     /**

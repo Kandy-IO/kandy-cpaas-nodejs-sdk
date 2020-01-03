@@ -26,3 +26,9 @@ button {
   padding: 14px 20px;
   width: 100%;
 }
+
+.verify-button {
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+}
