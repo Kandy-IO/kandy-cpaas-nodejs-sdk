@@ -75,7 +75,7 @@ async function createInboundSubscription() {
 }
 ```
 + `destinationAddress` is an optional parameter to indicate which SMS DID number has been desired to receive SMS messages. Corresponding number should be one of the assigned/purchased numbers of the project, otherwise $KANDY$ replies back with Forbidden error. Also not providing this parameter triggers $KANDY$ to use the default assigned DID number against this user, in which case the response message for the subscription contains the `destinationAddress` field. It is highly recommended to provide `destinationAddress` parameter.
-+ `webhookURL` is a webhook that is present in your application which is accessible from the public web. The sms notifications would be delivered to the webhook and the received notification can be consumed by using the `notification.parse` helper method. The usage of `notification.parse` is explained in Step 2.
++ `webhookURL` is a webhook endpoint that is present in your application server which is accessible from the public web. The sms notifications would be delivered to this webhook endpoint and the received notification can be consumed by using the `notification.parse` helper method. The usage of `notification.parse` is explained in Step 2.
 
 A successful subscription would return:
 ```javascript
@@ -88,12 +88,15 @@ A successful subscription would return:
 > + For every number required to receive incoming SMS, there should be an individual subscription.
 > + When a number has been unassigned from a project, all corresponding inbound SMS subscriptions are cancelled and `smsSubscriptionCancellationNotification` notification is sent.
 
-Now, you are ready to receive inbound SMS messages via webhook, for example - 'https://myapp.com/inbound-sms/webhook'.
+Now, you are ready to receive inbound SMS messages via the webhook endpoint, for example - 'https://myapp.com/inbound-sms/webhook'. For more information about webhook and subscription, you can refer the [sms starter app](https://github.com/Kandy-IO/kandy-cpaas-nodejs-sdk/tree/v1.1.0/examples/sms).
 
 ### Step 2: Receiving notification
-An inbound SMS notification via webhook can be parsed by using the `notification.parse` method:
+An inbound SMS notification received by your webhook endpoint can be parsed by using the `notification.parse` method:
 
 ```javascript
+  // This is a sample representation of the  method present in your application server
+  // that receives request when the particular webhook endpoint (passed as webhookURL)
+  // is hit by the CPaaS server with a notification as the request's body.
   function webhook(inboundNotification) {
     parsedResponse = client.notification.parse(inboundNotification)
   }
@@ -116,6 +119,9 @@ The parsed response returned from the `notification.parse` method can look like 
 $KANDY$ provides notification for outbound SMS messages, to sync all online clients up-to-date in real time. The outbound notification received can also be parsed by using the `notification.parse` method:
 
 ```javascript
+  // This is a sample representation of the  method present in your application server
+  // that receives request when the particular webhook endpoint (passed as webhookURL)
+  // is hit by the CPaaS server with a notification as the request's body.
   function webhook(outboundNotification) {
     parsedResponse = client.notification.parse(outboundNotification)
   }
@@ -140,6 +146,8 @@ With the help of this notification, clients can sync their view on sent SMS mess
 
 > For trial users, maximum number of SMS messages stored is 1000. When new messages are inserted to history, oldest ones are being removed.
 
+## Example
+To learn more, check the [SMS starter app](https://github.com/Kandy-IO/kandy-cpaas-nodejs-sdk/tree/v1.1.0/examples/sms).
 
 ## References
-For all SMS related method details, refer to [SMS](/developer/references/nodejs/1.0.0#sms-send).
+For all SMS related method details, refer to [SMS](/developer/references/nodejs/1.1.0#sms-send).

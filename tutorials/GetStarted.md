@@ -43,7 +43,7 @@ const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
 const client = createClient({
   clientId: '<private project key>',
   clientSecret: '<private project secret>',
-  baseUrl: '$KANDYFQDN$'
+  baseUrl: 'https://$KANDYFQDN$'
 })
 ```
 

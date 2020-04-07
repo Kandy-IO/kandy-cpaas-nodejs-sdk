@@ -21,9 +21,9 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.senderAddress - Sender address information, basically the from address. E164 formatted DID number passed as a value, which is owned by the user. If the user wants to let CPaaS uses the default assigned DID number, this field can either has "default" value or the same value as the userId.
-     * @param  {Array.<string>|string} params.destinationAddress
+     * @param  {Array.<string>|string} params.destinationAddress Indicates which DID number(s) used as destination for this SMS.
      * @param  {string} params.message - SMS text message
      *
      * @returns {Promise<Object>}
@@ -82,7 +82,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} [params.remoteAddress] - Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
      * @param  {string} [params.localAddress] - Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
      * @param  {Object} [params.query]
@@ -130,7 +130,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.localAddress - Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
      * @param  {string} params.remoteAddress - Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
      * @param  {string} params.messageId - Identification of the SMS message.
@@ -156,7 +156,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.localAddress - Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
      * @param  {string} params.remoteAddress - Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
      * @param  {Object} [params.query]
@@ -191,7 +191,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.localAddress - Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
      * @param  {string} params.remoteAddress - Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
      * @param  {string} [params.messageId] - Identification of the SMS message. If messageId is not passed then the SMS thread is deleted with all messages.
@@ -221,7 +221,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      *
      * @returns {Promise<Array>}
      */
@@ -259,7 +259,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.subscriptionId - Resource ID of the subscription
      *
      * @returns {Promise<Object>}
@@ -297,8 +297,8 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
-     * @param  {string} params.webhookURL - The webhook that has been acquired during SMS API subscription, which the incoming notifications supposed to be sent to.
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
+     * @param  {string} params.webhookURL - HTTPS URL that is present in your application server which is accessible from the public web where the notifications should be sent to. Note: Should be a <code>POST</code> endpoint.
      * @param  {string} [params.destinationAddress] - The address that incoming messages are received for this subscription. If does not exist, CPaaS uses the default assigned DID number to subscribe against. It is suggested to provide the intended E164 formatted DID number within this parameter.
      *
      * @returns {Promise<Object>}
@@ -344,7 +344,7 @@ module.exports = function conversation (api) {
      * @memberof Conversation
      *
      * @param  {Object} params
-     * @param  {string} params.type - Type of conversation. Possible values - SMS. Check conversation.types for more options
+     * @param  {string} params.type - Type of conversation. Possible value(s) - sms. Check conversation.types for more options
      * @param  {string} params.subscriptionId - Resource ID of the subscription
      *
      * @returns {Promise<Object>}

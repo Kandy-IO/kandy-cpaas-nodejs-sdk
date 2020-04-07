@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>@kandy-io/cpaas-nodejs-sdk 1.0.0 | Documentation</title>
+  <title>@kandy-io/cpaas-nodejs-sdk 1.1.0 | Documentation</title>
   <meta name='description' content='Kandy SDK'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@kandy-io/cpaas-nodejs-sdk</h3>
-          <div class='mb1'><code>1.0.0</code></div>
+          <div class='mb1'><code>1.1.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -247,7 +247,7 @@
                 <tr>
   <td class='break-word'><span class='code bold'>params.clientId</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span>Private project secret
+  <td class='break-word'><span>Private project key
 </span></td>
 </tr>
 
@@ -402,7 +402,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -411,7 +411,8 @@
                 <tr>
   <td class='break-word'><span class='code bold'>params.destinationAddress</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>Indicates which DID number(s) used as destination for this SMS.
+</span></td>
 </tr>
 
 
@@ -524,7 +525,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -728,7 +729,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -850,7 +851,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1009,7 +1010,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1132,7 +1133,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1227,7 +1228,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1331,7 +1332,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1349,7 +1350,11 @@
                 <tr>
   <td class='break-word'><span class='code bold'>params.webhookURL</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span>The webhook that has been acquired during SMS API subscription, which the incoming notifications supposed to be sent to.
+  <td class='break-word'><span>HTTPS URL that is present in your application server which is accessible from the public web where the notifications should be sent to. Note: Should be a 
+<code>
+POST
+</code>
+ endpoint.
 </span></td>
 </tr>
 
@@ -1444,7 +1449,7 @@
   
     (default <code>this.types.SMS</code>)
   </td>
-  <td class='break-word'><span>Type of conversation. Possible values - SMS. Check conversation.types for more options
+  <td class='break-word'><span>Type of conversation. Possible value(s) - sms. Check conversation.types for more options
 </span></td>
 </tr>
 
@@ -1646,8 +1651,7 @@ simplified version of the response.</p>
   </div>
   
 
-  <p>CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.
-Sections below describe two sample use cases, two-factor authentication via SMS and two-factor authentication via e-mail</p>
+  <p>CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.</p>
 
     <div class='pre p1 fill-light mt0'>Twofactor</div>
   
@@ -1739,6 +1743,15 @@ Sections below describe two sample use cases, two-factor authentication via SMS 
  string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the 
 <em>{code}</em>
  string located within the link in order to get a unique link.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.subject</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+  </td>
+  <td class='break-word'><span>When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
 </span></td>
 </tr>
 
@@ -2000,6 +2013,15 @@ Sections below describe two sample use cases, two-factor authentication via SMS 
  string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the 
 <em>{code}</em>
  string located within the link in order to get a unique link.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.subject</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+  </td>
+  <td class='break-word'><span>When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
 </span></td>
 </tr>
 

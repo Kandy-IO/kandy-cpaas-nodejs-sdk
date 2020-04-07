@@ -100,7 +100,7 @@
       },
       {
         "title": "param",
-        "description": "Private project secret",
+        "description": "Private project key",
         "lineNumber": 6,
         "type": {
           "type": "NameExpression",
@@ -186,7 +186,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "value": "Private project secret",
+                      "value": "Private project key",
                       "position": {
                         "start": {
                           "line": 1,
@@ -195,8 +195,8 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 23,
-                          "offset": 22
+                          "column": 20,
+                          "offset": 19
                         },
                         "indent": []
                       }
@@ -210,8 +210,8 @@
                     },
                     "end": {
                       "line": 1,
-                      "column": 23,
-                      "offset": 22
+                      "column": 20,
+                      "offset": 19
                     },
                     "indent": []
                   }
@@ -225,8 +225,8 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 23,
-                  "offset": 22
+                  "column": 20,
+                  "offset": 19
                 }
               }
             },
@@ -557,7 +557,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -577,7 +577,7 @@
             },
             {
               "title": "param",
-              "description": null,
+              "description": "Indicates which DID number(s) used as destination for this SMS.",
               "lineNumber": 8,
               "type": {
                 "type": "UnionType",
@@ -680,7 +680,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -689,8 +689,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -704,8 +704,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -719,8 +719,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -734,6 +734,58 @@
                   "title": "param",
                   "name": "params.destinationAddress",
                   "lineNumber": 8,
+                  "description": {
+                    "type": "root",
+                    "children": [
+                      {
+                        "type": "paragraph",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "Indicates which DID number(s) used as destination for this SMS.",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 1,
+                                "offset": 0
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 64,
+                                "offset": 63
+                              },
+                              "indent": []
+                            }
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 64,
+                            "offset": 63
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 64,
+                        "offset": 63
+                      }
+                    }
+                  },
                   "type": {
                     "type": "UnionType",
                     "elements": [
@@ -1014,7 +1066,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -1245,7 +1297,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -1254,8 +1306,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -1269,8 +1321,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -1284,8 +1336,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -2149,7 +2201,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -2254,7 +2306,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -2263,8 +2315,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -2278,8 +2330,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -2293,8 +2345,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -2622,7 +2674,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -2782,7 +2834,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -2791,8 +2843,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -2806,8 +2858,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -2821,8 +2873,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -3359,7 +3411,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -3467,7 +3519,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -3476,8 +3528,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -3491,8 +3543,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -3506,8 +3558,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -3838,7 +3890,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -3913,7 +3965,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -3922,8 +3974,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -3937,8 +3989,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -3952,8 +4004,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -4099,7 +4151,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -4184,7 +4236,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -4193,8 +4245,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -4208,8 +4260,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -4223,8 +4275,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -4430,7 +4482,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -4440,7 +4492,7 @@
             },
             {
               "title": "param",
-              "description": "The webhook that has been acquired during SMS API subscription, which the incoming notifications supposed to be sent to.",
+              "description": "HTTPS URL that is present in your application server which is accessible from the public web where the notifications should be sent to. Note: Should be a <code>POST</code> endpoint.",
               "lineNumber": 7,
               "type": {
                 "type": "NameExpression",
@@ -4528,7 +4580,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -4537,8 +4589,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -4552,8 +4604,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -4567,8 +4619,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -4654,7 +4706,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "The webhook that has been acquired during SMS API subscription, which the incoming notifications supposed to be sent to.",
+                            "value": "HTTPS URL that is present in your application server which is accessible from the public web where the notifications should be sent to. Note: Should be a ",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -4663,8 +4715,76 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 121,
-                                "offset": 120
+                                "column": 155,
+                                "offset": 154
+                              },
+                              "indent": []
+                            }
+                          },
+                          {
+                            "type": "html",
+                            "value": "<code>",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 155,
+                                "offset": 154
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 161,
+                                "offset": 160
+                              },
+                              "indent": []
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "value": "POST",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 161,
+                                "offset": 160
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 165,
+                                "offset": 164
+                              },
+                              "indent": []
+                            }
+                          },
+                          {
+                            "type": "html",
+                            "value": "</code>",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 165,
+                                "offset": 164
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 172,
+                                "offset": 171
+                              },
+                              "indent": []
+                            }
+                          },
+                          {
+                            "type": "text",
+                            "value": " endpoint.",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 172,
+                                "offset": 171
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 182,
+                                "offset": 181
                               },
                               "indent": []
                             }
@@ -4678,8 +4798,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 121,
-                            "offset": 120
+                            "column": 182,
+                            "offset": 181
                           },
                           "indent": []
                         }
@@ -4693,8 +4813,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 121,
-                        "offset": 120
+                        "column": 182,
+                        "offset": 181
                       }
                     }
                   },
@@ -4838,7 +4958,7 @@
             },
             {
               "title": "param",
-              "description": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+              "description": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
               "lineNumber": 6,
               "type": {
                 "type": "NameExpression",
@@ -4923,7 +5043,7 @@
                         "children": [
                           {
                             "type": "text",
-                            "value": "Type of conversation. Possible values - SMS. Check conversation.types for more options",
+                            "value": "Type of conversation. Possible value(s) - sms. Check conversation.types for more options",
                             "position": {
                               "start": {
                                 "line": 1,
@@ -4932,8 +5052,8 @@
                               },
                               "end": {
                                 "line": 1,
-                                "column": 87,
-                                "offset": 86
+                                "column": 89,
+                                "offset": 88
                               },
                               "indent": []
                             }
@@ -4947,8 +5067,8 @@
                           },
                           "end": {
                             "line": 1,
-                            "column": 87,
-                            "offset": 86
+                            "column": 89,
+                            "offset": 88
                           },
                           "indent": []
                         }
@@ -4962,8 +5082,8 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 87,
-                        "offset": 86
+                        "column": 89,
+                        "offset": 88
                       }
                     }
                   },
@@ -5454,7 +5574,7 @@
           "children": [
             {
               "type": "text",
-              "value": "CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.\nSections below describe two sample use cases, two-factor authentication via SMS and two-factor authentication via e-mail",
+              "value": "CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.",
               "position": {
                 "start": {
                   "line": 1,
@@ -5462,13 +5582,11 @@
                   "offset": 0
                 },
                 "end": {
-                  "line": 2,
-                  "column": 121,
-                  "offset": 233
+                  "line": 1,
+                  "column": 113,
+                  "offset": 112
                 },
-                "indent": [
-                  1
-                ]
+                "indent": []
               }
             }
           ],
@@ -5479,13 +5597,11 @@
               "offset": 0
             },
             "end": {
-              "line": 2,
-              "column": 121,
-              "offset": 233
+              "line": 1,
+              "column": 113,
+              "offset": 112
             },
-            "indent": [
-              1
-            ]
+            "indent": []
           }
         }
       ],
@@ -5496,9 +5612,9 @@
           "offset": 0
         },
         "end": {
-          "line": 2,
-          "column": 121,
-          "offset": 233
+          "line": 1,
+          "column": 113,
+          "offset": 112
         }
       }
     },
@@ -5506,7 +5622,7 @@
       {
         "title": "module",
         "description": null,
-        "lineNumber": 4,
+        "lineNumber": 3,
         "type": null,
         "name": "Twofactor"
       }
@@ -5517,18 +5633,18 @@
         "column": 0
       },
       "end": {
-        "line": 8,
+        "line": 7,
         "column": 3
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 162,
+          "line": 165,
           "column": 1
         }
       },
@@ -5675,8 +5791,21 @@
             },
             {
               "title": "param",
-              "description": "Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.",
+              "description": "When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.",
               "lineNumber": 9,
+              "type": {
+                "type": "OptionalType",
+                "expression": {
+                  "type": "NameExpression",
+                  "name": "string"
+                }
+              },
+              "name": "params.subject"
+            },
+            {
+              "title": "param",
+              "description": "Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.",
+              "lineNumber": 10,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -5690,7 +5819,7 @@
             {
               "title": "param",
               "description": "Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10.",
-              "lineNumber": 10,
+              "lineNumber": 11,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -5704,7 +5833,7 @@
             {
               "title": "param",
               "description": "Type of the code that is generated. If not provided, default value is numeric. Possible values: numeric, alphanumeric, alphabetic",
-              "lineNumber": 11,
+              "lineNumber": 12,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -5718,7 +5847,7 @@
             {
               "title": "returns",
               "description": null,
-              "lineNumber": 13,
+              "lineNumber": 14,
               "type": {
                 "type": "TypeApplication",
                 "expression": {
@@ -5736,7 +5865,7 @@
           ],
           "loc": {
             "start": {
-              "line": 15,
+              "line": 14,
               "column": 4
             },
             "end": {
@@ -5751,7 +5880,7 @@
                 "column": 4
               },
               "end": {
-                "line": 57,
+                "line": 58,
                 "column": 5
               }
             },
@@ -6016,8 +6145,72 @@
                 },
                 {
                   "title": "param",
-                  "name": "params.expiry",
+                  "name": "params.subject",
                   "lineNumber": 9,
+                  "description": {
+                    "type": "root",
+                    "children": [
+                      {
+                        "type": "paragraph",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 1,
+                                "offset": 0
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 191,
+                                "offset": 190
+                              },
+                              "indent": []
+                            }
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 191,
+                            "offset": 190
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 191,
+                        "offset": 190
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "OptionalType",
+                    "expression": {
+                      "type": "NameExpression",
+                      "name": "string"
+                    }
+                  }
+                },
+                {
+                  "title": "param",
+                  "name": "params.expiry",
+                  "lineNumber": 10,
                   "description": {
                     "type": "root",
                     "children": [
@@ -6079,7 +6272,7 @@
                 {
                   "title": "param",
                   "name": "params.length",
-                  "lineNumber": 10,
+                  "lineNumber": 11,
                   "description": {
                     "type": "root",
                     "children": [
@@ -6203,7 +6396,7 @@
                 {
                   "title": "param",
                   "name": "params.type",
-                  "lineNumber": 11,
+                  "lineNumber": 12,
                   "description": {
                     "type": "root",
                     "children": [
@@ -6436,22 +6629,22 @@
           ],
           "loc": {
             "start": {
-              "line": 59,
+              "line": 60,
               "column": 4
             },
             "end": {
-              "line": 69,
+              "line": 70,
               "column": 7
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 71,
+                "line": 72,
                 "column": 4
               },
               "end": {
-                "line": 94,
+                "line": 95,
                 "column": 5
               }
             },
@@ -6789,8 +6982,21 @@
             },
             {
               "title": "param",
-              "description": "Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.",
+              "description": "When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.",
               "lineNumber": 10,
+              "type": {
+                "type": "OptionalType",
+                "expression": {
+                  "type": "NameExpression",
+                  "name": "string"
+                }
+              },
+              "name": "params.subject"
+            },
+            {
+              "title": "param",
+              "description": "Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds.",
+              "lineNumber": 11,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -6804,7 +7010,7 @@
             {
               "title": "param",
               "description": "Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10.",
-              "lineNumber": 11,
+              "lineNumber": 12,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -6818,7 +7024,7 @@
             {
               "title": "param",
               "description": "Type of the code that is generated. If not provided, default value is numeric. Possible values: numeric, alphanumeric, alphabetic",
-              "lineNumber": 12,
+              "lineNumber": 13,
               "type": {
                 "type": "OptionalType",
                 "expression": {
@@ -6832,7 +7038,7 @@
             {
               "title": "returns",
               "description": null,
-              "lineNumber": 14,
+              "lineNumber": 15,
               "type": {
                 "type": "TypeApplication",
                 "expression": {
@@ -6850,22 +7056,22 @@
           ],
           "loc": {
             "start": {
-              "line": 96,
+              "line": 97,
               "column": 4
             },
             "end": {
-              "line": 111,
+              "line": 113,
               "column": 7
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 113,
+                "line": 115,
                 "column": 4
               },
               "end": {
-                "line": 139,
+                "line": 142,
                 "column": 5
               }
             },
@@ -7191,8 +7397,72 @@
                 },
                 {
                   "title": "param",
-                  "name": "params.expiry",
+                  "name": "params.subject",
                   "lineNumber": 10,
+                  "description": {
+                    "type": "root",
+                    "children": [
+                      {
+                        "type": "paragraph",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 1,
+                                "offset": 0
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 191,
+                                "offset": 190
+                              },
+                              "indent": []
+                            }
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 191,
+                            "offset": 190
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 191,
+                        "offset": 190
+                      }
+                    }
+                  },
+                  "type": {
+                    "type": "OptionalType",
+                    "expression": {
+                      "type": "NameExpression",
+                      "name": "string"
+                    }
+                  }
+                },
+                {
+                  "title": "param",
+                  "name": "params.expiry",
+                  "lineNumber": 11,
                   "description": {
                     "type": "root",
                     "children": [
@@ -7254,7 +7524,7 @@
                 {
                   "title": "param",
                   "name": "params.length",
-                  "lineNumber": 11,
+                  "lineNumber": 12,
                   "description": {
                     "type": "root",
                     "children": [
@@ -7378,7 +7648,7 @@
                 {
                   "title": "param",
                   "name": "params.type",
-                  "lineNumber": 12,
+                  "lineNumber": 13,
                   "description": {
                     "type": "root",
                     "children": [
@@ -7601,22 +7871,22 @@
           ],
           "loc": {
             "start": {
-              "line": 141,
+              "line": 144,
               "column": 4
             },
             "end": {
-              "line": 150,
+              "line": 153,
               "column": 7
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 152,
+                "line": 155,
                 "column": 4
               },
               "end": {
-                "line": 160,
+                "line": 163,
                 "column": 5
               }
             },

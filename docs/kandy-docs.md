@@ -46,7 +46,7 @@ Instantiate the instance with clientId & clientSecret.
 ### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.clientId` **[string][36]** Private project secret
+    -   `params.clientId` **[string][36]** Private project key
     -   `params.clientSecret` **[string][36]** Private project secret
     -   `params.baseUrl` **[string][36]** URL of the server to be used.
 
@@ -71,8 +71,8 @@ Send a new outbound message
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
-    -   `params.destinationAddress` **([Array][37]&lt;[string][36]> | [string][36])** 
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.destinationAddress` **([Array][37]&lt;[string][36]> | [string][36])** Indicates which DID number(s) used as destination for this SMS.
     -   `params.message` **[string][36]** SMS text message
     -   `params.senderAddress` **[string][36]** Sender address information, basically the from address. E164 formatted DID number passed as a value, which is owned by the user. If the user wants to let CPaaS uses the default assigned DID number, this field can either has "default" value or the same value as the userId.
 
@@ -85,7 +85,7 @@ Gets all messages.
 #### Parameters
 
 -   `params` **[Object][35]**  (optional, default `{}`)
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.query` **[Object][35]?** 
         -   `params.query.name` **[string][36]?** Performs search operation on firstName and lastName fields.
         -   `params.query.firstName` **[string][36]?** Performs search for the firstName field of the directory items.
@@ -108,7 +108,7 @@ Read a conversation message status
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.localAddress` **[string][36]** Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
     -   `params.messageId` **[string][36]** Identification of the SMS message.
     -   `params.remoteAddress` **[string][36]** Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
@@ -122,7 +122,7 @@ Read all messages in a thread
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.localAddress` **[string][36]** Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
     -   `params.remoteAddress` **[string][36]** Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
     -   `params.query` **[Object][35]?** 
@@ -140,7 +140,7 @@ Delete conversation message
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.localAddress` **[string][36]** Local address information while retrieving the SMS history, basically the source telephone number that user exchanged SMS before.
     -   `params.messageId` **[string][36]?** Identification of the SMS message. If messageId is not passed then the SMS thread is deleted with all messages.
     -   `params.remoteAddress` **[string][36]** Remote address information while retrieving the SMS history, basically the destination telephone number that user exchanged SMS before. E164 formatted DID number passed as a value.
@@ -154,7 +154,7 @@ Read all active subscriptions
 #### Parameters
 
 -   `params` **[Object][35]**  (optional, default `{}`)
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
 
 Returns **[Promise][38]&lt;[Array][37]>** 
 
@@ -165,7 +165,7 @@ Read active subscription
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.subscriptionId` **[string][36]** Resource ID of the subscription
 
 Returns **[Promise][38]&lt;[Object][35]>** 
@@ -177,9 +177,9 @@ Create a new subscription
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.destinationAddress` **[string][36]?** The address that incoming messages are received for this subscription. If does not exist, CPaaS uses the default assigned DID number to subscribe against. It is suggested to provide the intended E164 formatted DID number within this parameter.
-    -   `params.webhookURL` **[string][36]** The webhook that has been acquired during SMS API subscription, which the incoming notifications supposed to be sent to.
+    -   `params.webhookURL` **[string][36]** HTTPS URL that is present in your application server which is accessible from the public web where the notifications should be sent to. Note: Should be a <code>POST</code> endpoint.
 
 Returns **[Promise][38]&lt;[Object][35]>** 
 
@@ -190,7 +190,7 @@ Unsubscription from conversation notification
 #### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.type` **[string][36]** Type of conversation. Possible values - SMS. Check conversation.types for more options (optional, default `this.types.SMS`)
+    -   `params.type` **[string][36]** Type of conversation. Possible value(s) - sms. Check conversation.types for more options (optional, default `this.types.SMS`)
     -   `params.subscriptionId` **[string][36]** Resource ID of the subscription
 
 Returns **[Promise][38]&lt;[Object][35]>** 
@@ -213,7 +213,6 @@ Returns **[Object][35]**
 ## Twofactor
 
 CPaaS provides Authentication API where a two-factor authentication (2FA) flow can be implemented by using that.
-Sections below describe two sample use cases, two-factor authentication via SMS and two-factor authentication via e-mail
 
 ### sendCode
 
@@ -224,6 +223,7 @@ Create a new authentication code
 -   `params` **[Object][35]** 
     -   `params.destinationAddress` **([Array][37]&lt;[string][36]> | [string][36])** Destination address of the authentication code being sent. For sms type authentication codes, it should contain a E164 phone number. For e-mail type authentication codes, it should contain a valid e-mail address.
     -   `params.message` **[string][36]** Message text sent to the destination, containing the placeholder for the code within the text. CPaaS requires to have _{code}_ string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the _{code}_ string located within the link in order to get a unique link.
+    -   `params.subject` **[string][36]?** When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
     -   `params.expiry` **[number][39]** Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds. (optional, default `120`)
     -   `params.length` **[number][39]** Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10. (optional, default `6`)
     -   `params.method` **[string][36]** Type of the authentication code delivery method, sms and email are supported types. Possible values: sms, email (optional, default `'sms'`)
@@ -253,6 +253,7 @@ Resending the authentication code via same code resource, invalidating the previ
     -   `params.destinationAddress` **([Array][37]&lt;[string][36]> | [string][36])** Destination address of the authentication code being sent. For sms type authentication codes, it should contain a E164 phone number. For e-mail type authentication codes, it should contain a valid e-mail address.
     -   `params.codeId` **[string][36]** ID of the authentication code.
     -   `params.message` **[string][36]** Message text sent to the destination, containing the placeholder for the code within the text. CPaaS requires to have _{code}_ string within the text in order to generate a code and inject into the text. For email type code, one usage is to have the _{code}_ string located within the link in order to get a unique link.
+    -   `params.subject` **[string][36]?** When the method is passed as email then subject becomes a mandatory field to pass. The value passed becomes the subject line of the 2FA code email that is sent out to the destinationAddress.
     -   `params.expiry` **[number][39]** Lifetime duration of the code sent in seconds. This can contain values between 30 and 3600 seconds. (optional, default `120`)
     -   `params.length` **[number][39]** Length of the authentication code tha CPaaS should generate for this request. It can contain values between 4 and 10. (optional, default `6`)
     -   `params.method` **[string][36]** Type of the authentication code delivery method, sms and email are supported types. Possible values: sms, email (optional, default `'sms'`)

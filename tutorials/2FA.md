@@ -1,5 +1,5 @@
 # Two-Factor Authentication
-$KANDY$ provides [Authentication API](/developer/references/nodejs/1.0.0#twofactor-send-code) using which a two-factor authentication (2FA) flow can be implemented.
+$KANDY$ provides [Authentication API](/developer/references/nodejs/1.1.0#twofactor-send-code) using which a two-factor authentication (2FA) flow can be implemented.
 
 Sections below describe two sample use cases, two-factor authentication via SMS and two-factor authentication via e-mail.
 
@@ -133,5 +133,8 @@ The `code` can be:
 + Resend using the same resource, which "invalidates" the previously sent code and triggers a new SMS or email containing a new code.
 + Deleted explicitly if desired (deletion operation does not block the previously started send operation)
 
+## Example
+To learn more, check the [2FA starter app](https://github.com/Kandy-IO/kandy-cpaas-nodejs-sdk/tree/v1.1.0/examples/2fa).
+
 ## References
-For all two factor authentication related method details, refer to [Two Factor Authentication](/developer/references/nodejs/1.0.0#twofactor-send-code).
+For all two factor authentication related method details, refer to [Two Factor Authentication](/developer/references/nodejs/1.1.0#twofactor-send-code).
