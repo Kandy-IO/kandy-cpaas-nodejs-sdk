@@ -1,6 +1,6 @@
-# @kandy-io/cpaas-nodejs-sdk
+# Kandy CPaaS NodeJS SDK
 
-## Installation
+## Install
 
 Install the package with:
 
@@ -8,10 +8,10 @@ Install the package with:
 npm install @kandy-io/cpaas-nodejs-sdk
 ```
 
-## Reference
+## Documentation
 
 The information about tutorials and documents can be found in the links below
 
-* `Documents`: [docs](https://kandy-io.github.io/kandy-cpaas-nodejs-sdk/docs)
+* `Documents`: [API Docs](https://kandy-io.github.io/kandy-cpaas-nodejs-sdk/docs)
 
-* `Tutorials`:  [Get Started](https://Kandy-IO.github.io/kandy-cpaas-nodejs-sdk/tutorials/?KANDY=Kandy&KANDYFQDN=oauth-cpaas.att.com#/GetStarted)
+* `Tutorials`:  [User Guide](https://Kandy-IO.github.io/kandy-cpaas-nodejs-sdk/tutorials/?KANDY=Kandy&KANDYFQDN=oauth-cpaas.att.com#/GetStarted)
