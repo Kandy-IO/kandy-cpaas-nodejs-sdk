@@ -46,9 +46,11 @@ Instantiate the instance with clientId & clientSecret.
 ### Parameters
 
 -   `params` **[Object][35]** 
-    -   `params.clientId` **[string][36]** Private project key
-    -   `params.clientSecret` **[string][36]** Private project secret
+    -   `params.clientId` **[string][36]** Private project key / Account client ID. If Private project key is used then client_secret is mandatory. If account client ID is used then email and password are mandatory.
     -   `params.baseUrl` **[string][36]** URL of the server to be used.
+    -   `params.clientSecret` **[string][36]?** Private project secret
+    -   `params.email` **[string][36]?** Account login email.
+    -   `params.password` **[string][36]?** Account login password.
 
 ### Examples
 
@@ -57,6 +59,15 @@ const client = createClient({
   clientId: '<private project key>',
   clientSecret: '<private project secret>',
   baseUrl: '<base url>'
+})
+
+or
+
+const client = createClient({
+   clientId: '<account client ID>',
+   email: '<account email>',
+   password: '<account password>',
+   baseUrl: '<base url>'
 })
 ```
 

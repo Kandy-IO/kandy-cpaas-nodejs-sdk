@@ -27,10 +27,16 @@ After you've created your instance of the SDK, you can begin playing around with
 
 Before starting, you need to learn following information from your CPaaS account, specifically from Developer Portal.
 
-Log into your Developer Portal account and the configuration information required to be authenticated should be under:
+If you want to authenticate using CPaaS account's credentials, the configuration information required should be under:
+
++ `Home` -> `Personal Profile` (top right corner) -> `Details`
+> + `Email` should be mapped to `email`
+> + Your account password should be mapped to `password`
+> + `Account client ID` should be mapped to `clientId`
+
+Alternatively if you want to use your project's credentials, the configuration information required should be under:
 
 + `Projects` -> `{your project}` -> `Project info`/`Project secret`
-
 > + `Private Project key` should be mapped to `clientId`
 > + `Private Project secret` should be mapped to `clientSecret`
 
@@ -43,6 +49,15 @@ const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
 const client = createClient({
   clientId: '<private project key>',
   clientSecret: '<private project secret>',
+  baseUrl: 'https://$KANDYFQDN$'
+})
+
+// or
+
+const client = createClient({
+  clientId: '<account client ID>',
+  email: '<account email>',
+  password: '<account password>',
   baseUrl: 'https://$KANDYFQDN$'
 })
 ```

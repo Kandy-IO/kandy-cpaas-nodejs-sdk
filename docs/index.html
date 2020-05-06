@@ -247,16 +247,7 @@
                 <tr>
   <td class='break-word'><span class='code bold'>params.clientId</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span>Private project key
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>params.clientSecret</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-  </td>
-  <td class='break-word'><span>Private project secret
+  <td class='break-word'><span>Private project key / Account client ID. If Private project key is used then client_secret is mandatory. If account client ID is used then email and password are mandatory.
 </span></td>
 </tr>
 
@@ -266,6 +257,33 @@
   <td class='break-word'><span class='code bold'>params.baseUrl</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
   <td class='break-word'><span>URL of the server to be used.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.clientSecret</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+  </td>
+  <td class='break-word'><span>Private project secret
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.email</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+  </td>
+  <td class='break-word'><span>Account login email.
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.password</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+  </td>
+  <td class='break-word'><span>Account login password.
 </span></td>
 </tr>
 
@@ -293,6 +311,15 @@
   <span class="hljs-attr">clientId</span>: <span class="hljs-string">'&lt;private project key&gt;'</span>,
   <span class="hljs-attr">clientSecret</span>: <span class="hljs-string">'&lt;private project secret&gt;'</span>,
   <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">'&lt;base url&gt;'</span>
+})
+
+or
+
+<span class="hljs-keyword">const</span> client = createClient({
+   <span class="hljs-attr">clientId</span>: <span class="hljs-string">'&lt;account client ID&gt;'</span>,
+   <span class="hljs-attr">email</span>: <span class="hljs-string">'&lt;account email&gt;'</span>,
+   <span class="hljs-attr">password</span>: <span class="hljs-string">'&lt;account password&gt;'</span>,
+   <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">'&lt;base url&gt;'</span>
 })</pre>
     
   

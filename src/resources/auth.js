@@ -1,25 +1,21 @@
 module.exports = function auth (api) {
   return {
-    token ({ clientId, clientSecret, email, password } = {}) {
-      let form = {}
-
-      if (api.email) {
-        form = {
-          grant_type: 'password',
-          client_id: api.clientId || clientId,
-          email: api.email || email,
-          password: api.password || password,
-          scope: 'openid'
-        }
+    token (params = {}) {
+      const { clientId, clientSecret, email, password } = { ...api, ...params }
+      const form = {
+        client_id: clientId,
+        scope: 'openid'
       }
 
-      if (api.clientSecret) {
-        form = {
-          grant_type: 'client_credentials',
-          client_id: api.clientId || clientId,
-          client_secret: api.clientSecret || clientSecret,
-          scope: 'openid'
-        }
+      if (email) {
+        form.grant_type = 'password'
+        form.username = email
+        form.password = password
+      }
+
+      if (clientSecret) {
+        form.grant_type = 'client_credentials'
+        form.client_secret = clientSecret
       }
 
       const options = {
