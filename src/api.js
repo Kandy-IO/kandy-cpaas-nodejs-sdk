@@ -1,6 +1,6 @@
 const camelcaseKeys = require('camelcase-keys')
 const jwtDecode = require('jwt-decode')
-const request = require('request-promise')
+const request = require('axios')
 
 const auth = require('./resources/auth')
 const _package = require('./../package.json')
@@ -9,9 +9,8 @@ const { parseResponse } = require('./utils')
 
 class API {
   constructor ({ baseUrl, clientId, clientSecret, email, password } = {}) {
-    this.req = request.defaults({
-      baseUrl: baseUrl,
-      json: true
+    this.req = request.create({
+      baseUrl: baseUrl
     })
 
     this.baseUrl = baseUrl
@@ -84,30 +83,52 @@ class API {
   }
 
   sendRequest (url, options = {}, verb = 'get') {
-    const requestOptions = {
-      qs: options.query,
-      form: options.form,
-      body: options.body,
-      headers: this.headers(options.headers)
+    // const requestOptions = {
+    //   qs: options.query,
+    //   form: options.form,
+    //   body: options.body,
+    //   headers: this.headers(options.headers)
+    // }
+    let requestOptions = {}
+
+    // handle query string
+    if (options.query) {
+      requestOptions = {
+        params: options.query
+      }
+    }
+    // handle body
+    if (options.body) {
+      requestOptions = {
+        ...requestOptions,
+        ...options.body
+      }
+    }
+    // handle formdata
+    if (options.formdata) {
+      requestOptions = new FormData()
+      Object.keys(options.formData).forEach(key => {
+        requestOptions.append(key, options.formData[key])
+      })
     }
 
     let response = null
 
     switch (verb) {
       case 'get':
-        response = this.req.get({ url, ...requestOptions })
+        response = this.req.get(url, requestOptions, { headers: this.headers(options.headers) })
         break
       case 'post':
-        response = this.req.post({ url, ...requestOptions })
+        response = this.req.post(url, requestOptions, { headers: this.headers(options.headers) })
         break
       case 'put':
-        response = this.req.put({ url, ...requestOptions })
+        response = this.req.put(url, requestOptions, { headers: this.headers(options.headers) })
         break
       case 'patch':
-        response = this.req.patch({ url, ...requestOptions })
+        response = this.req.patch(url, requestOptions, { headers: this.headers(options.headers) })
         break
       case 'delete':
-        response = this.req.delete({ url, ...requestOptions })
+        response = this.req.delete(url, requestOptions, { headers: this.headers(options.headers) })
         break
       default:
         throw new Error('Invalid verb')
