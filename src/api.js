@@ -10,10 +10,6 @@ const { parseResponse } = require('./utils')
 
 class API {
   constructor ({ baseUrl, clientId, clientSecret, email, password } = {}) {
-    this.req = axios.create({
-      baseURL: baseUrl
-    })
-
     this.baseUrl = baseUrl
     this.clientId = clientId
     this.clientSecret = clientSecret
@@ -85,49 +81,21 @@ class API {
   }
 
   sendRequest (url, options = {}, verb = 'get') {
-    let requestOptions = {}
-    const headers = this.headers(options.headers)
+    const requestOptions = {
+      baseURL: this.baseUrl,
+      method: verb,
+      url,
+      headers: this.headers(options.headers),
+      data: options.body,
+      params: options.query
+    }
 
-    if (options.query) {
-      requestOptions = {
-        params: options.query
-      }
-    }
-    
-    if (options.body) {
-      requestOptions = {
-        ...requestOptions,
-        ...options.body
-      }
-    }
-    
     if (options.form) {
-      requestOptions = qs.stringify(options.form)
-      headers['Content-Type'] = 'application/x-www-form-urlencoded'
-    }
-
-    let response = null
-    switch (verb) {
-      case 'get':
-        response = this.req.get(url, requestOptions, { headers })
-        break
-      case 'post':
-        response = this.req.post(url, requestOptions, { headers })
-        break
-      case 'put':
-        response = this.req.put(url, requestOptions, { headers })
-        break
-      case 'patch':
-        response = this.req.patch(url, requestOptions, { headers })
-        break
-      case 'delete':
-        response = this.req.delete(url, requestOptions, { headers })
-        break
-      default:
-        throw new Error('Invalid verb')
+      requestOptions.data = qs.stringify(options.form)
+      requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
     
-    return response.then(({data}) => data)
+    return axios(requestOptions).then(({data}) => data)
       .catch(e => {
         throw new RequestError(e)
       })
