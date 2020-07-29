@@ -1,7 +1,7 @@
+const axios = require('axios')
 const camelcaseKeys = require('camelcase-keys')
 const jwtDecode = require('jwt-decode')
-var qs = require('qs');
-const axios = require('axios')
+var qs = require('qs')
 
 const auth = require('./resources/auth')
 const _package = require('./../package.json')
@@ -80,22 +80,23 @@ class API {
     return callback().then(parseResponse)
   }
 
-  sendRequest (url, options = {}, verb = 'get') {
+  sendRequest (url, { body, form, headers, query } = {}, verb = 'get') {
     const requestOptions = {
       baseURL: this.baseUrl,
       method: verb,
       url,
-      headers: this.headers(options.headers),
-      data: options.body,
-      params: options.query
+      headers: this.headers(headers),
+      data: body,
+      params: query
     }
 
-    if (options.form) {
-      requestOptions.data = qs.stringify(options.form)
+    if (form) {
+      requestOptions.data = qs.stringify(form)
       requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
     
-    return axios(requestOptions).then(({data}) => data)
+    return axios(requestOptions)
+      .then(({data}) => data)
       .catch(e => {
         throw new RequestError(e)
       })
