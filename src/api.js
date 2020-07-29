@@ -1,6 +1,7 @@
 const camelcaseKeys = require('camelcase-keys')
 const jwtDecode = require('jwt-decode')
-const request = require('axios')
+var qs = require('qs');
+const axios = require('axios')
 
 const auth = require('./resources/auth')
 const _package = require('./../package.json')
@@ -9,8 +10,8 @@ const { parseResponse } = require('./utils')
 
 class API {
   constructor ({ baseUrl, clientId, clientSecret, email, password } = {}) {
-    this.req = request.create({
-      baseUrl: baseUrl
+    this.req = axios.create({
+      baseURL: baseUrl
     })
 
     this.baseUrl = baseUrl
@@ -60,8 +61,9 @@ class API {
 
   headers (requestHeaders) {
     const baseHeaders = {
-      'Authorization': `Bearer ${this.accessToken}`,
-      'X-Cpaas-Agent': `nodejs-sdk/${_package.version}`
+      'X-Cpaas-Agent': `nodejs-sdk/${_package.version}`,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
     }
 
     return {
@@ -82,38 +84,27 @@ class API {
     return callback().then(parseResponse)
   }
 
-  sendRequest (url, options = {}, verb = 'get') {
-    // const requestOptions = {
-    //   qs: options.query,
-    //   form: options.form,
-    //   body: options.body,
-    //   headers: this.headers(options.headers)
-    // }
+  httpHandler (url, options = {}, verb = 'get') {
     let requestOptions = {}
 
-    // handle query string
     if (options.query) {
       requestOptions = {
         params: options.query
       }
     }
-    // handle body
+    
     if (options.body) {
       requestOptions = {
         ...requestOptions,
         ...options.body
       }
     }
-    // handle formdata
-    if (options.formdata) {
-      requestOptions = new FormData()
-      Object.keys(options.formData).forEach(key => {
-        requestOptions.append(key, options.formData[key])
-      })
+    
+    if (options.form) {
+      requestOptions = qs.stringify(options.form)
     }
 
     let response = null
-
     switch (verb) {
       case 'get':
         response = this.req.get(url, requestOptions, { headers: this.headers(options.headers) })
@@ -137,6 +128,10 @@ class API {
     return response.catch(e => {
       throw new RequestError(e)
     })
+  }
+
+  sendRequest(url, options = {}, verb = 'get') {
+    return this.httpHandler(url, options, verb).then(({data}) => data)
   }
 }
 

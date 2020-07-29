@@ -37,8 +37,6 @@ server.post('/send', async (req, res) => {
       senderAddress: process.env.PHONE_NUMBER
     })
 
-    console.log(response)
-
     res.redirect(302, '/?success=Success')
   } catch (error) {
     // Received error message is echoed back to the UI as an error alert.
@@ -53,8 +51,6 @@ server.post('/subscribe', async (req, res) => {
       webhookURL: `${req.body.webhook}/webhook`
     })
 
-    console.log(response)
-
     res.redirect(302, `/?success=Created subscription`)
   } catch (error) {
     // Received error message is echoed back to the UI as an error alert.
@@ -64,8 +60,6 @@ server.post('/subscribe', async (req, res) => {
 
 server.post('/webhook', (req, _res) => {
   const notification = client.notification.parse(req.body)
-
-  console.log(notification)
 
   setNotification(notification)
 })

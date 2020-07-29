@@ -1,8 +1,7 @@
 const dotenv = require('dotenv')
 const express = require('express')
 const path = require('path')
-// const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
-const { createClient } = require()
+const { createClient } = require('@kandy-io/cpaas-nodejs-sdk')
 const { validCredentials } = require('./utils')
 
 dotenv.config()
@@ -112,8 +111,6 @@ server.route('/verify')
         codeId: codeId(), // codeId() fetches saved codeId from the server instance. Check 'Helper methods' below for reference.
         verificationCode: req.body.code
       })
-
-      console.log(response)
 
       if (response.verified) {
         login()

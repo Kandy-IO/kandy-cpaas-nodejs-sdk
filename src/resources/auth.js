@@ -19,7 +19,8 @@ module.exports = function auth (api) {
       }
 
       const options = {
-        form
+        form,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded' }
       }
 
       return api.sendRequest('/cpaas/auth/v1/token', options, 'post')
