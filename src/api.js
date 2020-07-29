@@ -84,8 +84,9 @@ class API {
     return callback().then(parseResponse)
   }
 
-  httpHandler (url, options = {}, verb = 'get') {
+  sendRequest (url, options = {}, verb = 'get') {
     let requestOptions = {}
+    const headers = this.headers(options.headers)
 
     if (options.query) {
       requestOptions = {
@@ -102,36 +103,34 @@ class API {
     
     if (options.form) {
       requestOptions = qs.stringify(options.form)
+      headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
 
     let response = null
     switch (verb) {
       case 'get':
-        response = this.req.get(url, requestOptions, { headers: this.headers(options.headers) })
+        response = this.req.get(url, requestOptions, { headers })
         break
       case 'post':
-        response = this.req.post(url, requestOptions, { headers: this.headers(options.headers) })
+        response = this.req.post(url, requestOptions, { headers })
         break
       case 'put':
-        response = this.req.put(url, requestOptions, { headers: this.headers(options.headers) })
+        response = this.req.put(url, requestOptions, { headers })
         break
       case 'patch':
-        response = this.req.patch(url, requestOptions, { headers: this.headers(options.headers) })
+        response = this.req.patch(url, requestOptions, { headers })
         break
       case 'delete':
-        response = this.req.delete(url, requestOptions, { headers: this.headers(options.headers) })
+        response = this.req.delete(url, requestOptions, { headers })
         break
       default:
         throw new Error('Invalid verb')
     }
-
-    return response.catch(e => {
-      throw new RequestError(e)
-    })
-  }
-
-  sendRequest(url, options = {}, verb = 'get') {
-    return this.httpHandler(url, options, verb).then(({data}) => data)
+    
+    return response.then(({data}) => data)
+      .catch(e => {
+        throw new RequestError(e)
+      })
   }
 }
 
