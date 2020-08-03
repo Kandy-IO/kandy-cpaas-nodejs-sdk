@@ -113,8 +113,6 @@ server.route('/verify')
         verificationCode: req.body.code
       })
 
-      console.log(response)
-
       if (response.verified) {
         login()
         // The code is verified and redirected to dashboard/portal/protected area of app.

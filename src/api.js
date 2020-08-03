@@ -1,6 +1,7 @@
+const axios = require('axios')
 const camelcaseKeys = require('camelcase-keys')
 const jwtDecode = require('jwt-decode')
-const request = require('request-promise')
+var qs = require('qs')
 
 const auth = require('./resources/auth')
 const _package = require('./../package.json')
@@ -9,11 +10,6 @@ const { parseResponse } = require('./utils')
 
 class API {
   constructor ({ baseUrl, clientId, clientSecret, email, password } = {}) {
-    this.req = request.defaults({
-      baseUrl: baseUrl,
-      json: true
-    })
-
     this.baseUrl = baseUrl
     this.clientId = clientId
     this.clientSecret = clientSecret
@@ -61,8 +57,9 @@ class API {
 
   headers (requestHeaders) {
     const baseHeaders = {
-      'Authorization': `Bearer ${this.accessToken}`,
-      'X-Cpaas-Agent': `nodejs-sdk/${_package.version}`
+      'X-Cpaas-Agent': `nodejs-sdk/${_package.version}`,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken}`
     }
 
     return {
@@ -83,39 +80,26 @@ class API {
     return callback().then(parseResponse)
   }
 
-  sendRequest (url, options = {}, verb = 'get') {
+  sendRequest (url, { body, form, headers, query } = {}, verb = 'get') {
     const requestOptions = {
-      qs: options.query,
-      form: options.form,
-      body: options.body,
-      headers: this.headers(options.headers)
+      baseURL: this.baseUrl,
+      method: verb,
+      url,
+      headers: this.headers(headers),
+      data: body,
+      params: query
     }
 
-    let response = null
-
-    switch (verb) {
-      case 'get':
-        response = this.req.get({ url, ...requestOptions })
-        break
-      case 'post':
-        response = this.req.post({ url, ...requestOptions })
-        break
-      case 'put':
-        response = this.req.put({ url, ...requestOptions })
-        break
-      case 'patch':
-        response = this.req.patch({ url, ...requestOptions })
-        break
-      case 'delete':
-        response = this.req.delete({ url, ...requestOptions })
-        break
-      default:
-        throw new Error('Invalid verb')
+    if (form) {
+      requestOptions.data = qs.stringify(form)
+      requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
-
-    return response.catch(e => {
-      throw new RequestError(e)
-    })
+    
+    return axios(requestOptions)
+      .then(({data}) => data)
+      .catch(e => {
+        throw new RequestError(e)
+      })
   }
 }
 

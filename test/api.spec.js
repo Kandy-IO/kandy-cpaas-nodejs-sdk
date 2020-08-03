@@ -138,7 +138,7 @@ describe('API', () => {
     it('returns default headers when no params are passed', () => {
       const headers = api.headers()
       expect(headers).to.be.an('object')
-      expect(headers).to.have.keys([ 'Authorization', 'X-Cpaas-Agent' ])
+      expect(headers).to.have.keys([ 'Authorization', 'X-Cpaas-Agent', 'Content-Type' ])
       expect(headers['X-Cpaas-Agent']).to.eq(`nodejs-sdk/${_package.version}`)
     })
 
@@ -150,7 +150,7 @@ describe('API', () => {
       const headers = api.headers(requestHeaders)
 
       expect(headers).to.be.an('object')
-      expect(headers).to.have.all.keys([ 'Authorization', 'age', 'X-Cpaas-Agent' ])
+      expect(headers).to.have.all.keys([ 'Authorization', 'age', 'X-Cpaas-Agent', 'Content-Type' ])
     })
   })
 })
