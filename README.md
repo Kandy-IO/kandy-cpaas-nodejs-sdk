@@ -17,4 +17,4 @@ The information about tutorials and documents can be found in the links below
 * `Tutorials`:  [User Guide](https://Kandy-IO.github.io/kandy-cpaas-nodejs-sdk/tutorials/?KANDY=Kandy&KANDYFQDN=oauth-cpaas.att.com#/GetStarted)
 
 ## Compatibility
-- Ruby 2.0.0 or higher
+- NodeJS 10.0.0 or above.
